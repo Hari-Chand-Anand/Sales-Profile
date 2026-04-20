@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HCA Group • Contact</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f5f5f7;
+      --card:#ffffff;
+      --text:#1d1d1f;
+      --muted:#6e6e73;
+      --border:rgba(0,0,0,0.08);
+      --shadow-soft: 0 6px 18px rgba(0,0,0,0.06);
+      --radius:28px;
+      --ease:cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",
+                   Helvetica,Arial,"Inter",system-ui,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      padding:28px 16px 36px;
+    }
+
+    .container{
+      width:100%;
+      max-width:420px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
+      transform: translateY(10px);
+      opacity:0;
+      animation: fadeUp 900ms var(--ease) forwards;
+    }
+
+    .card:nth-child(1){ animation-delay: 60ms; }
+    .card:nth-child(2){ animation-delay: 140ms; }
+    .footer{ animation-delay: 220ms; }
+
+    @keyframes fadeUp{
+      to{
+        transform:translateY(0);
+        opacity:1;
+      }
+    }
+
+    .card-inner{ padding:18px 18px 16px; }
+
+    .hero{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+
+    .hero-main{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:0;
+      flex:1;
+    }
+
+    .app-icon{
+      width:56px;
+      height:56px;
+      border-radius:14px;
+      background: linear-gradient(180deg, #fff, #f5f5f7);
+      border:1px solid var(--border);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+
+    .app-icon img{
+      width:78%;
+      height:78%;
+      object-fit:contain;
+    }
+
+    .hero-title{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      min-width:0;
+    }
+
+    .hero-title h1{
+      margin:0;
+      font-size:18px;
+      line-height:1.15;
+      font-weight:700;
+      letter-spacing:-0.02em;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .save-icon-btn{
+      width:40px;
+      height:40px;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,0.07);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,245,247,0.95));
+      display:grid;
+      place-items:center;
+      flex:0 0 auto;
+      box-shadow:
+        0 8px 18px rgba(0,0,0,0.06),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+      transition:
+        transform 180ms var(--ease),
+        background 180ms var(--ease),
+        box-shadow 180ms var(--ease),
+        border-color 180ms var(--ease);
+      cursor:pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .save-icon-btn:hover{
+      transform: translateY(-1px);
+      background: linear-gradient(180deg, #ffffff, #f7f7f9);
+      box-shadow:
+        0 10px 22px rgba(0,0,0,0.08),
+        inset 0 1px 0 rgba(255,255,255,1);
+    }
+
+    .save-icon-btn:active{
+      transform: scale(0.97);
+    }
+
+    .save-icon-btn svg{
+      width:18px;
+      height:18px;
+      display:block;
+    }
+
+    .actions{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      padding:2px 0 0;
+    }
+
+    .btn{
+      border:1px solid var(--border);
+      background: rgba(245,245,247,0.7);
+      border-radius:18px;
+      padding:12px 12px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      cursor:pointer;
+      transition: transform 180ms var(--ease), background 180ms var(--ease), border-color 180ms var(--ease);
+      user-select:none;
+    }
+
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(245,245,247,0.95);
+    }
+
+    .btn:active{
+      transform: translateY(0px) scale(0.99);
+    }
+
+    .ico{
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.10);
+      flex:0 0 auto;
+      color:#fff;
+    }
+
+    .ico svg{
+      width:18px;
+      height:18px;
+      display:block;
+    }
+
+    .g-blue{ background: linear-gradient(135deg, #0a84ff, #0071e3); }
+    .g-orange{ background: linear-gradient(135deg, #ff9f0a, #ff6a00); }
+    .g-green{ background: linear-gradient(135deg, #34c759, #00a65a); }
+    .g-gray{ background: linear-gradient(135deg, #8e8e93, #4d4d50); }
+    .g-red{ background: linear-gradient(135deg, #ff453a, #ff2d55); }
+    .g-ig{ background: linear-gradient(135deg, #ffcc00, #ff2d55, #5856d6); }
+
+    .btn .txt{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      min-width:0;
+    }
+
+    .btn .txt .t{
+      font-size:13.5px;
+      font-weight:700;
+      letter-spacing:-0.01em;
+    }
+
+    .btn .txt .s{
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .footer{
+      text-align:center;
+      color:rgba(110,110,115,0.95);
+      font-size:12px;
+      padding:10px 6px 0;
+      transform: translateY(10px);
+      opacity:0;
+      animation: fadeUp 900ms var(--ease) forwards;
+    }
+
+    @media (max-width: 360px){
+      .actions{
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <main class="container">
+
+      <!-- HERO -->
+      <section class="card">
+        <div class="card-inner hero">
+          <div class="hero-main">
+            <div class="app-icon">
+              <img src="https://www.grouphca.com/cdn/shop/files/logo_1_280x.png?v=1722238275" alt="HCA Group Logo">
+            </div>
+            <div class="hero-title">
+              <h1>Hari Chand Anand &amp; Co.</h1>
+            </div>
+          </div>
+
+          <a href="#" class="save-icon-btn save-contact-trigger" aria-label="Download Contact" title="Download Contact">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M12 4v9" stroke="#1666d9" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8.5 10.5L12 14l3.5-3.5" stroke="#1666d9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 17v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1" stroke="#1666d9" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- BUTTONS -->
+      <section class="card">
+        <div class="card-inner">
+          <div class="actions">
+
+            <!-- 1) WhatsApp -->
+            <a class="btn" href="https://wa.me/918860086712" target="_blank" rel="noopener">
+              <div class="ico g-green" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M21 12a8 8 0 0 1-8 8H7l-4 2 1.6-3.2A8 8 0 1 1 21 12Z" stroke="white" stroke-width="2" opacity=".95"/>
+                </svg>
+              </div>
+              <div class="txt">
+                <div class="t">WhatsApp</div>
+                <div class="s">+91 88600 86712</div>
+              </div>
+            </a>
+
+            <!-- 2) Call -->
+            <a class="btn" href="tel:+918860086712">
+              <div class="ico g-gray" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7 3h3l1 5-2 1c1.2 2.6 3.3 4.7 5.9 5.9l1-2 5 1v3c0 1-1 2-2 2-9.4 0-17-7.6-17-17 0-1 1-2 2-2Z" stroke="white" stroke-width="2" opacity=".95"/>
+                </svg>
+              </div>
+              <div class="txt">
+                <div class="t">Call</div>
+                <div class="s">+91 88600 86712</div>
+              </div>
+            </a>
+
+            <!-- 3) Website -->
+            <a class="btn" href="https://www.grouphca.com/" target="_blank" rel="noopener">
+              <div class="ico g-blue" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" stroke="white" stroke-width="2" opacity=".95"/>
+                  <path d="M2 12h20" stroke="white" stroke-width="2" opacity=".95"/>
+                  <path d="M12 2c3 3 3 17 0 20M12 2c-3 3-3 17 0 20" stroke="white" stroke-width="2" opacity=".95"/>
+                </svg>
+              </div>
+              <div class="txt">
+                <div class="t">Website</div>
+                <div class="s">grouphca.com</div>
+              </div>
+            </a>
+
+            <!-- 4) Email -->
+            <a class="btn" href="mailto:enquiry@grouphca.com">
+              <div class="ico g-orange" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="white" stroke-width="2"/>
+                  <path d="m22 8-10 7L2 8" stroke="white" stroke-width="2" opacity=".95"/>
+                </svg>
+              </div>
+              <div class="txt">
+                <div class="t">Email</div>
+                <div class="s">enquiry@grouphca.com</div>
+              </div>
+            </a>
+
+            <!-- 5) YouTube -->
+            <a class="btn" href="https://www.youtube.com/@HCA_Co" target="_blank" rel="noopener">
+              <div class="ico g-red" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M21 12s0-3.2-.4-4.7c-.2-.8-.9-1.5-1.7-1.7C17.4 5 12 5 12 5s-5.4 0-6.9.6c-.8.2-1.5.9-1.7 1.7C3 8.8 3 12 3 12s0 3.2.4 4.7c.2.8.9 1.5 1.7 1.7C6.6 19 12 19 12 19s5.4 0 6.9-.6c.8-.2 1.5-.9 1.7-1.7.4-1.5.4-4.7.4-4.7Z"
+                        fill="white" opacity=".92"/>
+                  <path d="M10 9.5v5l5-2.5-5-2.5Z" fill="#ff2d55"/>
+                </svg>
+              </div>
+              <div class="txt">
+                <div class="t">YouTube</div>
+                <div class="s">@HCA_Co</div>
+              </div>
+            </a>
+
+            <!-- 6) Instagram -->
+            <a class="btn" href="https://www.instagram.com/hca.co?igsh=MWNuYW5wY2g2Y3QzNg==" target="_blank" rel="noopener">
+              <div class="ico g-ig" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M7.5 2.8h9A4.7 4.7 0 0 1 21.2 7.5v9A4.7 4.7 0 0 1 16.5 21.2h-9A4.7 4.7 0 0 1 2.8 16.5v-9A4.7 4.7 0 0 1 7.5 2.8Z" stroke="white" stroke-width="2" opacity=".95"/>
+                  <path d="M12 16.2a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Z" stroke="white" stroke-width="2" opacity=".95"/>
+                  <path d="M17.6 6.6h.01" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="txt">
+                <div class="t">Instagram</div>
+                <div class="s">@hca.co</div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        © 2025 HCA Group · All rights reserved
+      </footer>
+
+    </main>
+  </div>
+
+  <script>
+    document.querySelectorAll('.save-contact-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const vcard = [
+          'BEGIN:VCARD',
+          'VERSION:3.0',
+          'FN:Anuj Sharma',
+          'ORG:Hari Chand Anand & Co.',
+          'TITLE:Sales Director',
+          'TEL;TYPE=CELL:+918860086712',
+          'EMAIL:enquiry@grouphca.com',
+          'URL:https://www.grouphca.com/',
+          'END:VCARD'
+        ].join('\r\n');
+
+        const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'anuj-sharma-contact.vcf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        setTimeout(function () {
+          URL.revokeObjectURL(url);
+        }, 1000);
+      });
+    });
+  </script>
+</body>
+</html>
