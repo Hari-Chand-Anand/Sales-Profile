@@ -132,8 +132,7 @@
       height:40px;
       border-radius:12px;
       border:1px solid rgba(0,0,0,0.07);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,245,247,0.95));
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(245,245,247,0.95));
       display:grid;
       place-items:center;
       flex:0 0 auto;
@@ -472,6 +471,7 @@
         <div class="card-inner">
           <div class="location-head">
             <h2>Head Office</h2>
+            <p>Our Company Location</p>
           </div>
 
           <a
@@ -517,17 +517,19 @@
         const vcard = [
           'BEGIN:VCARD',
           'VERSION:3.0',
+          'N:Sharma;Anuj;;;',
           'FN:Anuj Sharma',
           'ORG:Hari Chand Anand & Co.',
-          'TITLE:Sales Director',
-          'TEL;TYPE=CELL:+918860086712',
-          'EMAIL:enquiry@grouphca.com',
+          'TITLE:Sales Coordinator',
+          'TEL;TYPE=WORK,CELL:+918860086712',
+          'EMAIL;TYPE=INTERNET:enquiry@grouphca.com',
           'URL:https://www.grouphca.com/',
-          'ADR:;;A-94/1\\, Pocket D\\, Phase II\\, Okhla Industrial Estate;New Delhi;Delhi;110020;India',
+          'ADR;TYPE=WORK:;;A-94/1\\, Pocket D\\, Phase II\\, Okhla Industrial Estate;New Delhi;Delhi;110020;India',
+          'NOTE:Head Office',
           'END:VCARD'
-        ].join('\\r\\n');
+        ].join('\r\n');
 
-        const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
+        const blob = new Blob([vcard + '\r\n'], { type: 'text/vcard;charset=utf-8' });
         const url = URL.createObjectURL(blob);
 
         const a = document.createElement('a');
